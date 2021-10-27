@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+Preview
+{% endblock %}
+
+
+{% block body %}
+<img src="http://{{ host }}:5000/images/{{ user.id }}" alt="" height="100px"> <br>
+{{ user.position }} <br>
+{{ user.name }} <br>
+{{ user.date_of_birth }} <br>
+{{ user.blood_group }} <br>
+{{ user.phone }} <br>
+{{ user.email }} <br>
+{% endblock %}

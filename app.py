@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(50), nullable = False)
-    
+
     pic = db.Column(db.Text, unique = True, nullable = False)
     mimetype = db.Column(db.Text, nullable = False)
 
@@ -119,6 +119,26 @@ def update(id):
         return render_template("update.html",user = user)
 
     
+
+@app.route("/preview/<int:id>")
+def preview(id):
+    user = User.query.filter_by(id=id).first()
+    o = urlparse(request.base_url)
+    host = o.hostname
+    return render_template('preview.html',user = user,host=host)
+
+
+@app.route("/images/<int:id>")
+def get_image(id):
+    user = User.query.filter_by(id=id).first()
+
+    if not user:
+        return f"No user with id {id}",404
+
+    return Response(user.pic, mimetype=user.mimetype)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

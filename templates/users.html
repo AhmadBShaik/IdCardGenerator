@@ -35,12 +35,12 @@
         <th>Actions</th>
     </tr>
 
-    
+
     {% for user in users %}
         <tr>
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
-            <td><a href="#" target="_blank">view</a></td>
+            <td><a href="{{ url_for('get_image',id = user.id ) }}" target="_blank">view</a></td>
             <td>{{ user.mimetype }}</td>
             <td>{{ user.position }}</td>
             <td>{{ user.date_of_birth }}</td>

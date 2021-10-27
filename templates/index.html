@@ -30,7 +30,7 @@ Id Card Generator
             <td>{{ user.phone }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.date_of_birth }}</td>
-            <td><a href="#">preview</a></td>
+            <td><a href="{{ url_for('preview',id = user.id) }}">preview</a></td>
         </tr>
     {% endfor %}
 </table>
