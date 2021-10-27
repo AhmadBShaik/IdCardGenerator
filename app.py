@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from datetime import date, datetime
 from urllib.parse import urlparse
+from sqlalchemy import exc
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db' 
@@ -69,7 +70,10 @@ def users():
             db.session.add(new_user)
             db.session.commit()
             return redirect('/users')
-        except :
+        except exc.IntegrityError:
+            db.session.rollback()
+            return f"The image was already associated with other user"
+        except:
             return f"There was a problem adding a user..."
     else:
         users = User.query.order_by(User.id).all()
@@ -113,6 +117,9 @@ def update(id):
         try:
             db.session.commit()
             return redirect("/users")
+        except exc.IntegrityError:
+            db.session.rollback()
+            return f"The image was already associated with other user"
         except:
             return "There was a problem updating a user..."
     else:
