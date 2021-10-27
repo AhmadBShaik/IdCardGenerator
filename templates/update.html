@@ -11,12 +11,40 @@ Update User
 
 <form action="{{ url_for('update',id = user.id) }}" enctype="multipart/form-data" method="POST">
     <input type="text" name="username" id="name" placeholder="Username" value={{ user.name }} required><br>
+    <label for="pic">Image</label>
     <input type="file" name="pic" value="">(Optional)<br>
-    <input type="text" name="position" id="position" placeholder="Position" value={{ user.position }} required><br>
+    <label for="position">Position</label>
+    <select name="position" id="positions">
+ 
+        <option value="Product Owner" {% if user.position == "Product Owner"%}selected{% endif %} >Product Owner</option>
+        <option value="Team Lead" {% if user.position == "Team Lead"%}selected{% endif %} >Team Lead</option>
+        <option value="Tech Lead" {% if user.position == "Tech Lead"%}selected{% endif %} >Tech Lead</option>
+        <option value="Full-Stack Developer" {% if user.position == "Full-Stack Developer"%}selected{% endif %} >Full-Stack Developer</option>
+        <option value="Front-End Developer" {% if user.position == "Front-End Developer"%}selected{% endif %} >Front-End Developer</option>
+        <option value="Back-End Developer" {% if user.position == "Back-End Developer"%}selected{% endif %} >Back-End Developer</option>
+        <option value="QA Lead" {% if user.position == "QA Lead"%}selected{% endif %} >QA Lead</option>
+        <option value="Tester" {% if user.position == "Tester"%}selected{% endif %} >Tester</option>
+        <option value="UI Designer" {% if user.position == "UI Designer"%}selected{% endif %} >UI Designer</option>
+        <option value="UX Designer" {% if user.position == "UX Designer"%}selected{% endif %} >UX Designer</option>
+    </select> <br>
+
+    <label for="DOB">Date of Birth</label>
     <input type="date" name="DOB" id="DOB" placeholder="Date of Birth" value={{ user.date_of_birth }} required><br>
-    <input type="text" name="blood_group" id="blood_group" placeholder="Blood Group" value={{ user.blood_group }} required><br>
+    <label for="blood_group">Blood Group</label>
+    <select name="blood_group" id="blood_group">
+
+        <option value="O+" {% if user.blood_group == "O+"%}selected{% endif %} >O+</option>
+        <option value="O-" {% if user.blood_group == "O-"%}selected{% endif %} >O-</option>
+        <option value="A+" {% if user.blood_group == "A+"%}selected{% endif %} >A+</option>
+        <option value="A-" {% if user.blood_group == "A-"%}selected{% endif %} >A-</option>
+        <option value="B+" {% if user.blood_group == "B+"%}selected{% endif %} >B+</option>
+        <option value="B-" {% if user.blood_group == "B-"%}selected{% endif %} >B-</option>
+        <option value="AB+" {% if user.blood_group == "AB+"%}selected{% endif %} >AB+</option>
+        <option value="AB-" {% if user.blood_group == "AB-"%}selected{% endif %} >AB-</option>
+    </select> <br>
     <input type="tel" name="phone" id="phone" placeholder="Phone" value={{ user.phone }} required><br>
     <input type="email" name="email" id="email" placeholder="Email" value={{ user.email }} required><br>
+    <a href="{{ url_for('index') }}"><button>Back</button></a>
     <input type="submit" value="Update User">
 </form>
 
