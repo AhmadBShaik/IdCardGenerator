@@ -7,5 +7,32 @@ Id Card Generator
 
 
 {% block body %}
-Home
+<br>
+<input width="1200px" type="text" placeholder="Search Name / Position / phone / mail"> 
+<br>
+<br>
+<table border="1px" style="text-align: center;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Preview</th>
+    </tr>
+
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.position }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.date_of_birth }}</td>
+            <td><a href="#">preview</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

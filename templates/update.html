@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+Update User
+{% endblock %}
+
+
+{% block body %}
+
+<h1>Update User</h1>
+
+<form action="{{ url_for('update',id = user.id) }}" enctype="multipart/form-data" method="POST">
+    <input type="text" name="username" id="name" placeholder="Username" value={{ user.name }} required><br>
+    <input type="file" name="pic" value="">(Optional)<br>
+    <input type="text" name="position" id="position" placeholder="Position" value={{ user.position }} required><br>
+    <input type="date" name="DOB" id="DOB" placeholder="Date of Birth" value={{ user.date_of_birth }} required><br>
+    <input type="text" name="blood_group" id="blood_group" placeholder="Blood Group" value={{ user.blood_group }} required><br>
+    <input type="tel" name="phone" id="phone" placeholder="Phone" value={{ user.phone }} required><br>
+    <input type="email" name="email" id="email" placeholder="Email" value={{ user.email }} required><br>
+    <input type="submit" value="Update User">
+</form>
+
+{% endblock %}

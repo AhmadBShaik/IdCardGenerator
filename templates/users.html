@@ -7,5 +7,57 @@
 
 
 {% block body %} 
-Users
+
+<form action="{{ url_for('users') }}" enctype="multipart/form-data" method="POST">
+    <input type="text" name="username" id="name" placeholder="Username" required><br>
+    <input type="file" name="pic" required><br>
+    <input type="text" name="position" id="position" placeholder="Position" required><br>
+    <input type="date" name="DOB" id="DOB" placeholder="Date of Birth" required><br>
+    <input type="text" name="blood_group" id="blood_group" placeholder="Blood Group" required><br>
+    <input type="tel" name="phone" id="phone" placeholder="Phone" required><br>
+    <input type="email" name="email" id="email" placeholder="Email" required><br>
+    <input type="submit" value="Add User">
+</form>
+
+
+
+<table border="1px" style="text-align: center;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Mimetype</th>
+        <th>Position</th>
+        <th>Date</th>
+        <th>Blood Group</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+
+    
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td><a href="#" target="_blank">view</a></td>
+            <td>{{ user.mimetype }}</td>
+            <td>{{ user.position }}</td>
+            <td>{{ user.date_of_birth }}</td>
+            <td>{{ user.blood_group }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="/update/{{ user.id }}">
+                    Update
+                </a>
+                <br>
+                <a href="/delete/{{ user.id }}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
