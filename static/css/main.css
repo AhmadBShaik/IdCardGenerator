@@ -73,7 +73,65 @@ footer .container p{
 
 
 
+.id-card-wrapper{
+    padding: 5em;
+    background-color: #ebe7e7;    
+}
 
 
 
+.id-card{
+    border: solid black 1px;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 300px;
+    height: 480px;
+    background-color: #fff;
+}
 
+.id-card .company-name{
+    text-align: center;
+    padding: 20px;
+}
+
+.id-card .item-image{
+    margin: 2px;
+    text-align: center;
+}
+
+.id-card .item-name, .id-card .item-position{
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.id-card .item-date_of_birth, 
+.id-card .item-blood_group, .id-card .item-phone,
+.id-card .item-email, .id-card .item-id{
+    margin:5px 20px;
+}
+
+
+.id-card-wrapper .id-card-buttons{
+    margin-top: 20px;
+    /* text-align: center;    */
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.id-card-wrapper .id-card-buttons button{
+    margin: 20px;
+}
+
+
+
+@media print{
+    .no-print, .no-print *{
+        display: none;
+    }
+    .id-card{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

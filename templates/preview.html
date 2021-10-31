@@ -6,11 +6,29 @@ Preview
 
 
 {% block body %}
-<img src="http://{{ host }}:5000/images/{{ user.id }}" alt="" height="100px"> <br>
-{{ user.position }} <br>
-{{ user.name }} <br>
-{{ user.date_of_birth }} <br>
-{{ user.blood_group }} <br>
-{{ user.phone }} <br>
-{{ user.email }} <br>
+
+<div class="id-card-wrapper">
+    <div class="id-card">
+        <div class="id-card-item company-name">Company Name</div> <hr>
+        <div class="id-card-item item-image">
+            <img src="http://{{ host }}:5000/images/{{ user.id }}" alt="" height="150px" width="110px">
+        </div>
+        <div class="id-card-item item-name"><b>{{ user.name }}</b></div>
+        <div class="id-card-item item-position">{{ user.position }}</div>
+        <div class="id-card-item item-id"> <b>Id No.&nbsp: </b> {{ user.id }}</div>
+        <div class="id-card-item item-date_of_birth"><b>D.O.B  &nbsp: </b>{{ user.date_of_birth }}</div>
+        <div class="id-card-item item-blood_group"><b>Blood  &nbsp: </b>{{ user.blood_group }}</div>
+        <div class="id-card-item item-phone"><b>Phone : </b>{{ user.phone }}</div>
+        <div class="id-card-item item-email"><b>Email &nbsp: </b>{{ user.email }}</div>
+    </div>
+
+    <div class="id-card-buttons no-print">
+
+    <a href="{{ url_for('index') }}"><button>Back</button></a>
+    <button onclick="window.print()">Generate</button>
+    </div>
+</div>
+
+
+
 {% endblock %}
