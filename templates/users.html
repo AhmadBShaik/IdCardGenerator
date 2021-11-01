@@ -11,9 +11,9 @@
 <form action="{{ url_for('users') }}" enctype="multipart/form-data" method="POST">
     <input type="text" name="username" id="name" placeholder="Username" required><br>
     <label for="pic">Image</label>
-    <input type="file" name="pic" id="pic" required><br>
+    <input type="file" name="pic" id="pic" accept="image/png, image/jpeg" required><br>
     <label for="position">Position</label>
-    <select name="position" id="positions">
+    <select name="position" id="positions" required>
         <option value="none" selected disabled hidden>
             Select Position
         </option>
