@@ -51,8 +51,9 @@
 </form>
 
 
+<input id="users-user-search" width="1200px" type="text" placeholder="Search Name / Position / phone / mail"> 
 
-<table border="1px" style="text-align: center;">
+<table id="users-table" border="1px" style="text-align: center;">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -90,5 +91,10 @@
         </tr>
     {% endfor %}
 </table>
+
+<div id="result-count" style="text-align: center;">
+
+</div>
+<script src="{{ url_for('static',filename='js/mainUsers.js') }}"></script>
 
 {% endblock %}

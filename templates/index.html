@@ -8,10 +8,9 @@ Id Card Generator
 
 {% block body %}
 <br>
-<input width="1200px" type="text" placeholder="Search Name / Position / phone / mail"> 
-<br>
-<br>
-<table border="1px" style="text-align: center;">
+<input id="index-user-search" width="1200px" type="text" placeholder="Search Name / Position / phone / mail"> 
+
+<table border="1px" style="text-align: center;" id="index-table">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -34,5 +33,8 @@ Id Card Generator
         </tr>
     {% endfor %}
 </table>
+<div id="result-count" style="text-align: center;">
 
+</div>
+<script src="{{ url_for('static',filename='js/mainIndex.js') }}"></script>
 {% endblock %}

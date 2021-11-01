@@ -135,3 +135,13 @@ footer .container p{
         left: 0;
     }
 }
+
+#users-user-search{
+    margin-top: 20px;
+}
+
+#index-user-search, #users-user-search{    
+    margin-bottom: 10px;
+    width: 80%;
+}
+
